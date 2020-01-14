@@ -10,6 +10,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
+const giphyRouter = require(`./routes/giphy.router`); //gifs - right now very basic set up to get one at random
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -24,6 +25,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+app.use(`/api/giphy`, giphyRouter); //gifs
 
 // Serve static files
 app.use(express.static('build'));
