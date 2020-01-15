@@ -14,8 +14,9 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+import UserPage from '../UserPage/UserPage'; // user home page
 import InfoPage from '../InfoPage/InfoPage';
+import AdminPage from '../AdminPage/AdminPage'; // admin home page
 
 import './App.css';
 
@@ -47,6 +48,10 @@ class App extends Component {
               exact
               path="/home"
               component={UserPage}
+            />
+
+            <ProtectedRoute
+              exact path="/admin" component={AdminPage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
