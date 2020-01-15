@@ -1,6 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const dotenv = require('dotenv');
+dotenv.config();
+const axios = require('axios');
 
 /**
  * GET route template
@@ -16,7 +19,7 @@ router.get('/', (req, res) => {
         .catch(error =>{
             console.log(`error getting a random gif`, error)
             res.sendStatus(500)//internal server error
-        })
+        });
 });
 
 /**
