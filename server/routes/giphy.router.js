@@ -9,12 +9,17 @@ const axios = require('axios');
  * GET route template
  */
 
- // get a random gif
-router.get('/', (req, res) => {
+ // search for a gif
+router.get('/search/:seachQuery', (req, res) => {
     let apiKey = process.env.GIPHY_API_KEY;
-    axios.get(`http://api.giphy.com/v1/gifs/random?api_key=${apiKey}`)
+    console.log(searchQuery)
+    axios.get(`http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${req.params.searchQuery}&limit12`)
         .then(response =>{
-            res.send(response.data.data)
+            searchResults = [];
+            for (let item of response.data.data){
+                searchResults.push({image_url: item.original.url, title: item.title})
+            }
+            res.send(searchResults)
         })
         .catch(error =>{
             console.log(`error getting a random gif`, error)
@@ -30,3 +35,4 @@ router.post('/', (req, res) => {
 });
 
 module.exports = router;
+//'/search/:searchQuery'
