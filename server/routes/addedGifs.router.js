@@ -1,5 +1,5 @@
-const express = require('express')
-const pool = require('../modules/pool')
+const express = require('express');
+const pool = require('../modules/pool');
 
 // return added gifs
 router.get('/', (req, res)=>{
