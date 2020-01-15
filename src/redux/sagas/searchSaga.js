@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {put, takeLatest} from 'redux-saga/effects';
 
-function* search(){
+function* search(action){
     try {
         const getResponse = yield axios.get(`/api/giphy/search/${action.payload}`);
         yield put({ type: 'SET_SEARCH', payload: getResponse.data})
