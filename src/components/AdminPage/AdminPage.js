@@ -10,6 +10,12 @@ class AdminPage extends Component {
     handleDelete = () => {
         console.log('delete')
     }
+
+    goToAddGifPage = () => {
+        //console.log('clicked')
+        this.props.history.push('/addGif');
+    }
+
     render() {
         return (
             <div>
@@ -26,16 +32,10 @@ class AdminPage extends Component {
                             <tr><tb>phinas and ferb</tb><button>Delete</button></tr>
                         </tbody>
                     </table>
+                    {/*button will take user to new page to add new Gif to table*/}
+                    <button onClick={this.goToAddGifPage}>Add Gif</button>
                 </section> 
-                <hr/>
-                <section>
-                    <input type="text" placeholder="search"/>
-                    <button onClick="searchForGif">Search</button>
-                    <div>
-                        {/* display they gifs that the user searched for limit 12 */}
-                        
-                    </div>
-                </section>
+                <br />
                 <LogOutButton />
             </div>
         )
