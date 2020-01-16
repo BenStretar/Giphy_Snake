@@ -20,6 +20,7 @@ import AdminPage from '../AdminPage/AdminPage'; // admin home page
 import addGifPage from '../AddGifPage/addGifPage';
 
 import './App.css';
+import HowToPlay from '../HowToPlay/HowToPlay';
 
 class App extends Component {
   componentDidMount () {
@@ -59,6 +60,10 @@ class App extends Component {
               exact path="/addGif" component={addGifPage}
             />
             
+            <ProtectedRoute
+              exact path="/howto" component={HowToPlay}
+            />
+
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <ProtectedRoute
