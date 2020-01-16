@@ -22,7 +22,7 @@ class AdminPage extends Component {
                 <h1>Admin Home</h1>
                 
                 <section>
-                    <table>
+                    {/* <table>
                         <thead>
                             <tr>
                                 <th>Title</th>
@@ -31,7 +31,7 @@ class AdminPage extends Component {
                         <tbody>
                             <tr><tb>phinas and ferb</tb><button>Delete</button></tr>
                         </tbody>
-                    </table>
+                    </table> */}
                     {/*button will take user to new page to add new Gif to table*/}
                     <button onClick={this.goToAddGifPage}>Add Gif</button>
                 </section> 
