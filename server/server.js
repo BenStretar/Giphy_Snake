@@ -10,8 +10,8 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const giphyRouter = require(`./routes/giphy.router`); //gifs - right now very basic set up to get one at random
-
+const giphyRouter = require(`./routes/giphy.router`); 
+const addGifsRouter = require('./routes/addedGifs.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +26,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use(`/api/giphy`, giphyRouter); //gifs
+app.use(`/api/addGif`, addGifsRouter);
 
 // Serve static files
 app.use(express.static('build'));
