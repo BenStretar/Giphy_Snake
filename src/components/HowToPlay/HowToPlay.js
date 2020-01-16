@@ -10,7 +10,7 @@ class HowToPlay extends Component {
                     or draw it out?
                     or just have text on how to play? */}
 
-                    <p className="">
+                    <div className="">
                         <ul>
                             <li>Use the Arrow Keys on your keyboard to move the blue square around the board.</li>
                             <li>Avoid the red rectangles. If they hit you your game will end.</li>
@@ -19,7 +19,7 @@ class HowToPlay extends Component {
                             <li>note: you don't have to pick up this items if you don't want to</li>
                             <li>the longer you survive the faster the enemies will move</li>
                         </ul>
-                    </p>
+                    </div>
                 </div>
             </>
         )
