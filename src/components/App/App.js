@@ -17,7 +17,8 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage'; // user home page
 import InfoPage from '../InfoPage/InfoPage'; //don't think i need this
 import AdminPage from '../AdminPage/AdminPage'; // admin home page
-import addGifPage from '../AddGifPage/addGifPage';
+import AddGifPage from '../AddGifPage/addGifPage';
+import Game from '../Game/Game';
 
 import './App.css';
 import HowToPlay from '../HowToPlay/HowToPlay';
@@ -57,11 +58,15 @@ class App extends Component {
             />
 
             <ProtectedRoute
-              exact path="/addGif" component={addGifPage}
+              exact path="/addGif" component={AddGifPage}
             />
             
             <ProtectedRoute
               exact path="/howto" component={HowToPlay}
+            />
+
+            <ProtectedRoute
+              exact path="/game" component={Game}
             />
 
             {/* This works the same as the other protected route, except that if the user is logged in,
