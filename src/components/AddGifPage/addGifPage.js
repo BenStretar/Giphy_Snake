@@ -11,20 +11,31 @@ class addGifPage extends Component {
         this.props.dispatch({type: 'SEARCH_GIPHY', payload: this.state.search})
     }
 
+    handleChange = (event) => {
+        this.setState({
+            search: event.target.value
+        })
+        console.log('in handleChange:', event.target.value)
+    }
+
     render() {
         return (
             <section>
-                <input type="text" placeholder="search"/>
+                <h1>Search Page</h1>
+                <input placeholder="search" type="text" onChange={(event)=>this.handleChange(event, 'search')} 
+                value={this.state.search}/>
+
                 <button onClick={this.searchForGif}>Search</button>
-                {JSON.stringify(this.props.images)}
-                
+                                
                     {/* display they gifs that the user searched for limit 12 */}
                     {/* {this.props.images.map((item, i)=>{
                         return <img src={item.url} alt={item.title}/>
                     })} */}
-                    <div>
-                        <img src="https://media3.giphy.com/media/yQUP2EUSHEgta/giphy.gif"/>
-                    </div>
+                <div>
+                    {JSON.stringify(this.props.images)}
+                    
+                </div>
+                   
                 
             </section>
         )
