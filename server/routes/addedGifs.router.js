@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
   // delete a favorite
 router.delete('/:id', (req, res) => {
     
-    let queryString = `DELETE FROM "gif" WHERE "id"=$1;`;
+    let queryString = `DELETE FROM "gifs" WHERE "id"=$1;`;
   
     //Query to dependant tables
     pool.query(queryString, [req.params.id]).then(result=>{
