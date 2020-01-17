@@ -22,7 +22,7 @@ class addGifPage extends Component {
         return (
             <section>
                 <h1>Search Page</h1>
-                <input placeholder="search" type="text" onChange={(event)=>this.handleChange(event, 'search')} 
+                <input placeholder="search" type="text" onChange={(event)=>this.handleChange(event)} 
                 value={this.state.search}/>
 
                 <button onClick={this.searchForGif}>Search</button>
@@ -32,8 +32,7 @@ class addGifPage extends Component {
                         return <img src={item.url} alt={item.title}/>
                     })} */}
                 <div>
-                    {JSON.stringify(this.props.images)}
-                    
+                    {/* <img src={this.props.image.image_url} alt={this.props.image.title}/> */}
                 </div>
                    
                 

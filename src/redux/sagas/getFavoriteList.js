@@ -3,7 +3,7 @@ import {put, takeLatest} from 'redux-saga/effects';
 
 function* favoriteList(action){
     try {
-        const getResponse = yield axios.get('/api/giphy');
+        const getResponse = yield axios.get('/api/addGif');
         yield put({type: 'SET_FAVORITE_LIST', payload: getResponse.data});
       }
       catch (error) {

@@ -3,7 +3,7 @@ import {put, takeLatest} from 'redux-saga/effects';
 
 function* newFavorite(action){
     try {
-        yield axios.post('/api/giphy', action.payload);
+        yield axios.post('/api/addGif', action.payload);
         yield put({type: 'GET_FAVORITE_LIST'})
     } 
     catch (error) {

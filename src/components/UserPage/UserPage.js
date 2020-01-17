@@ -18,12 +18,22 @@ const UserPage = (props) => (
     <section>
       <h2>High Scores</h2>
       <table>
-
+        <thead>
+            <tr><th>Time</th>
+            <th>Items Collected</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1:30</td>
+                <td>0</td>
+            </tr>
+        </tbody>                       
       </table>
-      <h2>Game</h2>
-      <button>Start Game</button>
+      <button>Clear Scores</button>  
 
       <hr />
+      <h2>Collected Gifs</h2>
+      
     </section>
 
   </div>

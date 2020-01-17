@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 //import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import './Admin.css'
 
 
@@ -16,30 +15,36 @@ class AdminPage extends Component {
         this.props.history.push('/addGif');
     }
 
+    deleteRow = () =>{
+        console.log('in delete row')
+    }
+
     render() {
         return (
             <div>
                 <h1>Admin Home</h1>
                 
                 <section>
-                    {/* <table>
+                    <table>
                         <thead>
-                            <tr>
-                                <th>Title</th>
-                            </tr>
+                            <tr><th>Title</th>
+                            <th>Delete</th></tr>
                         </thead>
                         <tbody>
-                            <tr><tb>phinas and ferb</tb><button>Delete</button></tr>
-                        </tbody>
-                    </table> */}
+                            <tr>
+                                <td></td>
+                                <td><button onClick={this.deleteRow}>Delete</button></td>
+                            </tr>
+                        </tbody>                        
+                    </table>
                     {/*button will take user to new page to add new Gif to table*/}
                     <button onClick={this.goToAddGifPage}>Add Gif</button>
                 </section> 
                 <br />
-                <LogOutButton />
             </div>
         )
     }
 }
 
 export default AdminPage;
+
