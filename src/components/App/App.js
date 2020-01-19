@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage'; // user home page
 import InfoPage from '../InfoPage/InfoPage'; //don't think i need this
 import AdminPage from '../AdminPage/AdminPage'; // admin home page
 import AddGifPage from '../AddGifPage/addGifPage';
+import AddNew from '../AddNew/AddNew';
 import Game from '../Game/Game';
 
 import './App.css';
@@ -59,6 +60,10 @@ class App extends Component {
 
             <ProtectedRoute
               exact path="/addGif" component={AddGifPage}
+            />
+
+            <ProtectedRoute
+              exact path="/addNew" component={AddNew}
             />
             
             <ProtectedRoute
