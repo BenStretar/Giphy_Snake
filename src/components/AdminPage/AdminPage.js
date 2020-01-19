@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './Admin.css'
 
 
+
 // only an user will admin status will see this page
 class AdminPage extends Component {
 

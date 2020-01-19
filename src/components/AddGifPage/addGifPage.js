@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import GifCard from '../GifCard/GifCard';
 
 class addGifPage extends Component {
 
@@ -18,32 +19,27 @@ class addGifPage extends Component {
         console.log('in handleChange:', event.target.value)
     }
 
+    
     render() {
         return (
-            <section>
+            <div>
                 <h1>Search Page</h1>
                 <input placeholder="search" type="text" onChange={(event)=>this.handleChange(event)} 
                 value={this.state.search}/>
 
                 <button onClick={this.searchForGif}>Search</button>
                                 
-                    {/* display they gifs that the user searched for limit 12 */}
-                    {/* {this.props.images.map((item, i)=>{
-                        return <img src={item.url} alt={item.title}/>
-                    })} */}
-                <div>
-                    {/* <img src={this.props.image.image_url} alt={this.props.image.title}/> */}
-                </div>
-                   
-                
-            </section>
+                    {/* display 25 gifs that the user searched for */}
+                    {/* {JSON.stringify(this.props.images)} */}
+                    <div className="pictureBox">
+                        {this.props.images.map( (item,i)=> {     
+                        return <GifCard key={i} image={item} page='search'/>
+                        })}
+                    </div>
+            </div>
         )
     }
 }
 
-
-const putReduxStateOnProps = (reduxStore) => ({
-    images: reduxStore.images
-})
-
-export default connect(putReduxStateOnProps)(addGifPage);
+export default connect(reduxState=>(
+    {images: reduxState.searchReducer}))(addGifPage);
