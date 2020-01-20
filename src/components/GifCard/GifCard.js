@@ -18,6 +18,7 @@ class GifCard extends Component {
     switch(this.props.page) {
       case 'search': return <button onClick={this.selectImage}>Favorite me!</button>;
       case 'favorites': return <button onClick={this.deleteFavorite}>Delete</button>
+      default:
     }
   }
 
