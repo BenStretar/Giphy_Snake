@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import './Admin.css'
 
 
 
-// only an user will admin status will see this page
+// only an user with admin status will see this page
 class AdminPage extends Component {
 
-    handleDelete = () => {
-        console.log('delete')
-    }
+    componentDidMount(){
+        this.props.dispatch({ type: 'GET_FAVORITE_LIST'})
+      }
 
     goToAddGifPage = () => {
         //console.log('clicked')
@@ -18,23 +18,23 @@ class AdminPage extends Component {
 
     deleteRow = () =>{
         console.log('in delete row')
+        this.props.dispatch({type: 'DELETE_FAVORITE'})
     }
 
     render() {
         return (
             <div>
                 <h1>Admin Home</h1>
+                {JSON.stringify(this.props.favoriteImages)}
                 
                 <section>
                     <table>
                         <thead>
-                            <tr><th>Title</th>
-                            <th>Delete</th></tr>
+                            <tr><th>Title</th><th>Delete</th></tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td><button onClick={this.deleteRow}>Delete</button></td>
+                                <td>title</td><td><button onClick={this.deleteRow}>Delete</button></td>
                             </tr>
                         </tbody>                        
                     </table>
@@ -47,5 +47,5 @@ class AdminPage extends Component {
     }
 }
 
-export default AdminPage;
+export default connect(reduxState=>({favoriteImages: reduxState.favoriteListReducer}))(AdminPage);
 
