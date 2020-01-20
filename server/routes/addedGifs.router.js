@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
     const {image_url, title} = req.body;
     let queryString = `INSERT INTO "gifs" ("title", "url") VALUES ($1, $2);`;
   
-    pool.query(queryString, [title,image_url]).then(result=>{
+    pool.query(queryString, [title ,image_url]).then(result=>{
       console.log('ADD RESULT',result);
       
       res.sendStatus(200);
