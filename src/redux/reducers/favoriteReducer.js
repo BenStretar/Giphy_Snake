@@ -1,7 +1,4 @@
-const favoriteReducer = (state={
-    title: 'DEFAULT',
-    url: '',
-}, action) => {
+const favoriteReducer = (state={title: 'DEFAULT', url: ''}, action) => {
     console.log(action.payload)
     switch(action.payload){
         case 'SELECT_IMAGE':
@@ -10,3 +7,5 @@ const favoriteReducer = (state={
             return state
     }
 }
+
+export default favoriteReducer;
