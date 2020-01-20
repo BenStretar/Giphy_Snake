@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 
-class AddNewPage extends Component {
+class AddNew extends Component {
 
   goToAddFavorite = () => {
     this.props.history.push('/addNew');
@@ -16,7 +16,7 @@ class AddNewPage extends Component {
       title: this.props.image.title
     }
     this.props.dispatch({type: 'ADD_NEW_FAVORITE', payload: newFavorite});
-    this.props.history.push('/');
+    this.props.history.push('/admin');
   }
 
   render () {
@@ -24,7 +24,7 @@ class AddNewPage extends Component {
       <div >
          <h1>ADD NEW</h1>
          <img src={this.props.image.image_url} alt={this.props.image.title} />
-         {/* {JSON.stringify(this.props.image)} */}
+         <br/>
          
         <button onClick={this.addToFavorites}>Add Favorite</button>
       </div>
@@ -34,4 +34,4 @@ class AddNewPage extends Component {
 
 export default withRouter(connect(reduxState=>({
   image: reduxState.favoriteReducer
-}))(AddNewPage));
+}))(AddNew));
