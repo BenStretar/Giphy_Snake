@@ -3,7 +3,7 @@ import {put, takeLatest} from 'redux-saga/effects';
 
 function* deleteItem(action){
     try {
-        yield axios.delete('/api/addGif', action.payload);
+        yield axios.delete('/api/addGif/'+ action.payload);
         yield put({type: 'GET_FAVORITE_LIST'})
     } 
     catch (error) {
