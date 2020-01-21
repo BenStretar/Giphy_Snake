@@ -7,7 +7,7 @@ class GifCard extends Component {
 
   selectImage = () => {
     this.props.history.push('/addNew');
-    this.props.dispatch({type: 'SELECT_IMAGE', payload: {...this.props.image}})
+    this.props.dispatch({type: 'SELECT_IMAGE', payload: {...this.props.image, categories:[]}})
   }
 
   deleteFavorite = () => {
