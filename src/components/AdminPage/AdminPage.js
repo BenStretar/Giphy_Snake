@@ -7,9 +7,9 @@ import './Admin.css'
 // only an user with admin status will see this page
 class AdminPage extends Component {
 
-    componentDidMount(){
-        this.props.dispatch({ type: 'GET_FAVORITE_LIST'})
-      }
+    // componentDidMount(){
+    //     this.props.dispatch({ type: 'GET_FAVORITE_LIST'})
+    //   }
 
     goToAddGifPage = () => {
         //console.log('clicked')
@@ -25,7 +25,7 @@ class AdminPage extends Component {
         return (
             <div>
                 <h1>Admin Home</h1>
-                {JSON.stringify(this.props.favoriteImages)}
+                {JSON.stringify(this.props.favoriteImages)} {/* Empty */}
                 
                 <section>
                     <table>
@@ -33,9 +33,15 @@ class AdminPage extends Component {
                             <tr><th>Title</th><th>Delete</th></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>title</td><td><button onClick={this.deleteRow}>Delete</button></td>
-                            </tr>
+                            {this.props.favoriteImages.map(image => {
+                                return(
+                                <tr>
+                                    <td>{image.title}</td><td><button onClick={this.deleteRow}>Delete</button></td>
+                                </tr>)
+                            })}
+                            {/* <tr>
+                                <td>title</td>
+                            </tr> */}
                         </tbody>                        
                     </table>
                     {/*button will take user to new page to add new Gif to table*/}
