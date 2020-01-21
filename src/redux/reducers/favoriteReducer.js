@@ -1,4 +1,4 @@
-const favoriteReducer = (state={title: 'DEFAULT', url: ''}, action) => {
+const favoriteReducer = (state={title: 'DEFAULT', image_url: '', categories: []}, action) => {
     console.log(action.payload)
     switch(action.payload){
         case 'SELECT_IMAGE':
