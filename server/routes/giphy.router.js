@@ -13,7 +13,7 @@ const axios = require('axios');
 router.get('/search/:searchQuery', (req, res) => {
     let apiKey = process.env.GIPHY_API_KEY;
     console.log(req.params.searchQuery)
-    axios.get(`http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${req.params.searchQuery}&limit12`)
+    axios.get(`http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${req.params.searchQuery}&limit=12`)
         .then(response =>{
             searchResults = [];
             for (let item of response.data.data){
