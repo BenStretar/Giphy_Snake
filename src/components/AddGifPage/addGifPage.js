@@ -29,7 +29,7 @@ class addGifPage extends Component {
 
                 <button onClick={this.searchForGif}>Search</button>
                                 
-                    {/* display 25 gifs that the user searched for */}
+                    {/* display 12 gifs that the user searched for */}
                     {/* {JSON.stringify(this.props.images)} */}
                     <div className="pictureBox">
                         {this.props.images.map( (item,i)=> {     
@@ -41,5 +41,4 @@ class addGifPage extends Component {
     }
 }
 
-export default connect(reduxState=>(
-    {images: reduxState.searchReducer}))(addGifPage);
+export default connect(reduxState=>({images: reduxState.searchReducer}))(addGifPage);
