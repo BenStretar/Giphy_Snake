@@ -17,9 +17,13 @@ class AdminPage extends Component {
         this.props.history.push('/addGif');
     }
 
-    deleteRow = () =>{
+    deleteRow = (id) =>{
         console.log('in delete row')
-        this.props.dispatch({ type: 'DELETE_FAVORITE', payload: this.props.favoriteImages.id})
+        this.props.dispatch({ type: 'DELETE_FAVORITE', payload: id})
+    }
+
+    editTitle = () =>{
+        console.log('edit button')
     }
 
     render() {
@@ -29,13 +33,15 @@ class AdminPage extends Component {
                 <h1>Admin Home</h1>                
                     <table>
                         <thead>
-                            <tr><th>Title</th><th>Delete</th></tr>
+                            <tr><th>Title</th><th></th><th></th></tr>
                         </thead>
                         <tbody>
                         {this.props.favoriteImages.map( (item,i)=> {     
                             return( 
                                 <tr key={i}>
-                                    <td>{item.title}</td><td><button onClick={this.deleteRow}>Delete</button></td>
+                                    <td>{item.title}</td>
+                                    <td><button onClick={this.editTitle}>Edit</button></td>
+                                    <td><button onClick={() => this.deleteRow(item.id)}>Delete</button></td>
                                 </tr>
                             )})}
                         </tbody>                        

@@ -15,7 +15,7 @@ router.get('/', (req, res)=>{
 
 // add scores to game table
 router.post('/', (req, res)=>{
-    let queryString = `INSERT INTO "game" ("time_elapsed") VALUES ($1);`;
+    let queryString = `INSERT INTO "game" ("gifs_collected") VALUES ($1);`;
     pool.query(queryString).then(results => {
         console.log('ADD SCORE', results);
         res.sendStatus(200)

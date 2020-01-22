@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import Snake from './Snake';
 import Item from './Item'; //change to Item from ./Item
 import './Game.css'
@@ -116,6 +117,7 @@ class App extends Component {
     alert(`Game Over. You scored: ${this.state.score}`);
     this.setState(initialState)
     this.props.history.push('/') // takes the user home after gameover
+    this.props.dispatch({type: 'SET_SCORE'})
   }
 
   render(){
@@ -132,4 +134,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);
