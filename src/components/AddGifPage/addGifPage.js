@@ -8,10 +8,6 @@ class addGifPage extends Component {
         search: ''
     }
 
-    searchForGif =()=>{
-        this.props.dispatch({type: 'SEARCH_GIPHY', payload: this.state.search})
-    }
-
     handleChange = (event) => {
         this.setState({
             search: event.target.value
@@ -19,7 +15,10 @@ class addGifPage extends Component {
         console.log('in handleChange:', event.target.value)
     }
 
-    
+    searchForGif = ()=>{
+        this.props.dispatch({type: 'SEARCH_GIPHY', payload: this.state.search})
+    }
+   
     render() {
         return (
             <div>

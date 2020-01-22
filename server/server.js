@@ -11,7 +11,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const giphyRouter = require(`./routes/giphy.router`); 
-const addedGifsRouter = require('./routes/addedGifs.router');
+const addGifRouter = require('./routes/addGif.router');
 const categoryRouter = require(`./routes/category.router`);
 
 // Body parser middleware
@@ -28,7 +28,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use(`/api/giphy`, giphyRouter); //gifs
-app.use(`/api/addGif`, addedGifsRouter);
+app.use(`/api/addGif`, addGifRouter);
 app.use(`/api/category`, categoryRouter);
 
 // Serve static files

@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Admin.css'
+//import GifCard from '../GifCard/GifCard'
 
 
 
 // only an user with admin status will see this page
 class AdminPage extends Component {
 
-    // componentDidMount(){
-    //     this.props.dispatch({ type: 'GET_FAVORITE_LIST'})
-    //   }
+    componentDidMount(){
+        this.props.dispatch({ type: 'GET_FAVORITE_LIST'})
+      }
 
     goToAddGifPage = () => {
         //console.log('clicked')
@@ -24,28 +25,22 @@ class AdminPage extends Component {
     render() {
         return (
             <div>
-                <h1>Admin Home</h1>
-                {JSON.stringify(this.props.favoriteImages)} {/* Empty */}
-                
-                <section>
+                {JSON.stringify(this.props.favoriteImages)} 
+                <h1>Admin Home</h1>                
                     <table>
                         <thead>
                             <tr><th>Title</th><th>Delete</th></tr>
                         </thead>
                         <tbody>
-                            {this.props.favoriteImages.map(image => {
+                            {this.props.favoriteImages.map((item, i)=>{
                                 return(
-                                <tr>
-                                    <td>{image.title}</td><td><button onClick={this.deleteRow}>Delete</button></td>
-                                </tr>)
-                            })}
-                            {/* <tr>
-                                <td>title</td>
-                            </tr> */}
+                            <tr>
+                                <td key={i} image={item}>{this.image.title}</td><td><button onClick={this.deleteRow}>Delete</button></td>
+                            </tr>)})}
                         </tbody>                        
                     </table>
-                    {/*button will take user to new page to add new Gif to table*/}
-                    <button onClick={this.goToAddGifPage}>Add Gif</button>
+                <section>
+                     <button onClick={this.goToAddGifPage}>Add Gif</button>
                 </section> 
                 <br />
             </div>
@@ -53,5 +48,8 @@ class AdminPage extends Component {
     }
 }
 
-export default connect(reduxState=>({favoriteImages: reduxState.favoriteListReducer}))(AdminPage);
+export default connect(reduxState=>({
+    //images: reduxState.searchReducer,
+    favoriteImages: reduxState.favoriteListReducer
+}))(AdminPage);
 

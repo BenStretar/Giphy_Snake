@@ -14,10 +14,12 @@ const getRandomCoordinates = () => {
 const initialState = {
   item: getRandomCoordinates(),
   speed: 200,
-  direction: 'RIGHT', // starting direction
+  // direction: 'RIGHT', // starting direction
   snakeDots: [
-    [0,0]
-  ]
+    [50,50] // start in the middle
+  ],
+  score: 0,
+  elapsedTime: 0,
 }
 
 class App extends Component {
@@ -93,10 +95,11 @@ class App extends Component {
     let item = this.state.item;
     if (head[0] === item[0] && head[1] === item[1]){
       this.setState({
-        item: getRandomCoordinates()
+        item: getRandomCoordinates(),
+        score: this.state.score + 1
       })
       this.increaseSpeed()
-      console.log('collected')
+      //console.log('collected')
     }
   }
 
@@ -110,15 +113,16 @@ class App extends Component {
   }
 
   onGameOver(){
-    alert(`Game Over.`);
+    alert(`Game Over. You scored: ${this.state.score}`);
     this.setState(initialState)
+    this.props.history.push('/') // takes the user home after gameover
   }
 
   render(){
     return(
       <>
       <h1 className="header">Dodge and Collect</h1>
-      {/* <h2 className="score">Score: {this.state.snakeDots.length}</h2> */}
+      <h2 className="score">Score: {this.state.score} Time: {this.state.elapsedTime}</h2>
     <div className="game-area">
       <Snake snakeDots={this.state.snakeDots} />  {/* <Item />*/}
       <Item dot={this.state.item} /> 
