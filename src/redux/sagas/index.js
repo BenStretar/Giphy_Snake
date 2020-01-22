@@ -20,8 +20,8 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     searchSaga(),
+    getFavoriteList(),
     addNewFavorite(),
     deleteFavorite(),
-    getFavoriteList(),
   ]);
 }

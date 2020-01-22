@@ -1,7 +1,6 @@
 const favoriteReducer = (state={
     title: 'DEFAULT',
-    image_url: '',
-    categories: []
+    image_url: ''
   }, action) => {
     console.log(action.payload)
     switch (action.type) {
