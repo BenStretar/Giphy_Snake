@@ -4,9 +4,6 @@ import {connect} from 'react-redux';
 
 class AddNew extends Component {
 
-  state = {
-    categories: []
-  }
 
   goToAddFavorite = () => {
     this.props.history.push('/addNew');
@@ -27,7 +24,7 @@ class AddNew extends Component {
     return (
       <div >
           {JSON.stringify(this.props.image)}
-         <h1>ADD NEW</h1>
+         <h1>ADD IMAGE TO LIST</h1>
          <img src={this.props.image.url} alt={this.props.image.title} />
         <button onClick={this.addToFavorites}>Add Favorite</button>
       </div>
@@ -37,5 +34,4 @@ class AddNew extends Component {
 
 export default withRouter(connect(reduxState=>({
   image: reduxState.favoriteReducer,
-  categories: reduxState.categoryReducer
 }))(AddNew));

@@ -19,24 +19,25 @@ class AdminPage extends Component {
 
     deleteRow = () =>{
         console.log('in delete row')
-        this.props.dispatch({type: 'DELETE_FAVORITE'})
+        this.props.dispatch({ type: 'DELETE_FAVORITE', payload: this.props.favoriteImages.id})
     }
 
     render() {
         return (
             <div>
-                {JSON.stringify(this.props.favoriteImages)} 
+                {/* {JSON.stringify(this.props.favoriteImages)}  */}
                 <h1>Admin Home</h1>                
                     <table>
                         <thead>
                             <tr><th>Title</th><th>Delete</th></tr>
                         </thead>
                         <tbody>
-                            {this.props.favoriteImages.map((item, i)=>{
-                                return(
-                            <tr>
-                                <td key={i} image={item}>{this.image.title}</td><td><button onClick={this.deleteRow}>Delete</button></td>
-                            </tr>)})}
+                        {this.props.favoriteImages.map( (item,i)=> {     
+                            return( 
+                                <tr key={i}>
+                                    <td>{item.title}</td><td><button onClick={this.deleteRow}>Delete</button></td>
+                                </tr>
+                            )})}
                         </tbody>                        
                     </table>
                 <section>
@@ -49,7 +50,5 @@ class AdminPage extends Component {
 }
 
 export default connect(reduxState=>({
-    //images: reduxState.searchReducer,
     favoriteImages: reduxState.favoriteListReducer
 }))(AdminPage);
-
