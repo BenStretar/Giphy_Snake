@@ -30,11 +30,11 @@ router.post('/', (req, res) => {
     })
   });
 
-  // update given favorite with a category id
-router.put('/:favId', (req, res) => {
-  // req.body should contain a category_id to add to this favorite image
-  res.sendStatus(200);
-});
+//   // update given favorite with a category id
+// router.put('/:favId', (req, res) => {
+//   // req.body should contain a category_id to add to this favorite image
+//   res.sendStatus(200);
+// });
 
   // delete a favorite
 router.delete('/:id', (req, res) => {
@@ -45,7 +45,7 @@ router.delete('/:id', (req, res) => {
     pool.query(queryString, [req.params.id]).then(result=>{
       
     }).catch(error=>{
-      console.log('Error deleting favorites from database:',error);
+      console.log('Error deleting favorites from database: ',error);
       res.sendStatus(400);
     });
   });

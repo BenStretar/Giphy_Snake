@@ -25,7 +25,7 @@ class GifCard extends Component {
   render () {
     return (
       <div className="imageCard">
-        {/* {JSON.stringify(this.props.image)} */}
+        {JSON.stringify(this.props.image.id)}
          <img src={this.props.image.image_url} alt={this.props.image.title}/>
          {this.renderPageStuff()}
       </div>

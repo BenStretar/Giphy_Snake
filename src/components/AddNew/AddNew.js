@@ -39,8 +39,11 @@ class AddNew extends Component {
     return (
       <div >
           {JSON.stringify(this.state.categories)}
+          {JSON.stringify(this.props.image.url)}
          <h1>ADD NEW</h1>
-         <img src={this.props.image.image_url} alt={this.props.image.title} />
+         <img src={this.props.image.url} alt={this.props.image.title} />
+         {/* <img src={this./> */}
+        
          <div>
           {this.props.categories.map( (item,i)=>{
             return <label key={i}><input  type="checkbox" value={item.name} onClick={(event)=>this.clickCategory(event,item.id)}/> {item.name} </label>
