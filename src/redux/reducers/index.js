@@ -5,7 +5,6 @@ import user from './userReducer';
 import searchReducer from './searchReducer';
 import favoriteReducer from './favoriteReducer';
 import favoriteListReducer from './favoriteListReducer';
-import categoryReducer from './categoryReducer';
 import scoreReducer from './scoreReducer';
 
 // rootReducer is the primary reducer for our entire project
@@ -21,7 +20,6 @@ const rootReducer = combineReducers({
   searchReducer,
   favoriteReducer,
   favoriteListReducer,
-  categoryReducer,
   scoreReducer,
 });
 
