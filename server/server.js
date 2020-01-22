@@ -12,7 +12,6 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const giphyRouter = require(`./routes/giphy.router`); 
 const addGifRouter = require('./routes/addGif.router');
-const categoryRouter = require(`./routes/category.router`);
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -29,7 +28,6 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use(`/api/giphy`, giphyRouter); //gifs
 app.use(`/api/addGif`, addGifRouter);
-app.use(`/api/category`, categoryRouter);
 
 // Serve static files
 app.use(express.static('build'));
