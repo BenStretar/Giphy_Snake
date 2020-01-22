@@ -27,7 +27,6 @@ import HowToPlay from '../HowToPlay/HowToPlay';
 class App extends Component {
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_USER'})
-    this.props.dispatch({type: 'GET_CATEGORIES'})
   }
 
   render() {
