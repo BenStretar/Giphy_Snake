@@ -10,17 +10,6 @@ class GifCard extends Component {
     this.props.dispatch({type: 'SELECT_IMAGE', payload: {...this.props.image}})
   }
 
-  // deleteFavorite = () => {
-  //   this.props.dispatch({ type: 'DELETE_FAVORITE', payload: this.props.image.id})
-  // }
-
-  // renderPageStuff = ()=> {
-  //   switch(this.props.page) {
-  //     case 'search': return ;
-  //     case 'favorites': return <button onClick={this.deleteFavorite}>Delete</button>
-  //     default:
-  //   }
-  // }
 
   render () {
     return (

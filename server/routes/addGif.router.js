@@ -30,6 +30,20 @@ router.post('/', (req, res) => {
     })
   });
 
+  router.put('/:id', (req, res)=>{
+    console.log('req.body: ',req.body)
+    console.log('id: ',req.params.id)
+    const id = req.params.id
+    let title = req.body.title
+    let queryString = `UPDATE "gifs" SET "title"=$1 WHERE "id"=$2;`;
+    pool.query(queryString, [title, id]).then(result=>{
+      res.sendStatus(200)
+    }).catch(error =>{
+      console.log('Error updating titles in database', error)
+      res.sendStatus(400)
+    })
+  })
+
   // delete a gif from the gif table
 router.delete('/:id', (req, res) => {
     const id = req.params.id

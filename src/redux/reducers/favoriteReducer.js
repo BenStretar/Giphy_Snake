@@ -1,4 +1,5 @@
 const favoriteReducer = (state={
+    // id: '', //added id, might break things
     title: 'DEFAULT',
     image_url: ''
   }, action) => {
