@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Admin.css'
-//import GifCard from '../GifCard/GifCard'
+import './Admin.css';
 
 
 
@@ -22,8 +21,9 @@ class AdminPage extends Component {
         this.props.dispatch({ type: 'DELETE_FAVORITE', payload: id})
     }
 
-    editTitle = () =>{
-        console.log('edit button')
+    editTitle = (id) =>{
+        console.log('clicked edit button')
+        this.props.history.push(`/edit/${id}`)
     }
 
     render() {
@@ -35,16 +35,17 @@ class AdminPage extends Component {
                         <thead>
                             <tr><th>Title</th><th></th><th></th></tr>
                         </thead>
+                        {/* <TableRow /> */}
                         <tbody>
-                        {this.props.favoriteImages.map( (item,i)=> {     
+                        {this.props.favoriteImages.map( (item)=> {     
                             return( 
-                                <tr key={i}>
+                                <tr key={item.id}>
                                     <td>{item.title}</td>
-                                    <td><button onClick={this.editTitle}>Edit</button></td>
+                                    <td><button onClick={() => this.editTitle(item.id)}>Edit</button></td>
                                     <td><button onClick={() => this.deleteRow(item.id)}>Delete</button></td>
                                 </tr>
                             )})}
-                        </tbody>                        
+                        </tbody>
                     </table>
                 <section>
                      <button onClick={this.goToAddGifPage}>Add Gif</button>

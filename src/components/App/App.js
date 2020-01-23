@@ -23,6 +23,7 @@ import Game from '../Game/Game';
 
 import './App.css';
 import HowToPlay from '../HowToPlay/HowToPlay';
+import EditTitle from '../EditTitle/EditTitle';
 
 class App extends Component {
   componentDidMount () {
@@ -72,6 +73,10 @@ class App extends Component {
 
             <ProtectedRoute
               exact path="/game" component={Game}
+            />
+
+            <ProtectedRoute
+              exact path="/edit/:id" component={EditTitle}
             />
 
             {/* This works the same as the other protected route, except that if the user is logged in,

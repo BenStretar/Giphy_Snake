@@ -23,9 +23,9 @@ class AddNew extends Component {
   render () {
     return (
       <div >
-          {JSON.stringify(this.props.image)}
+          {JSON.stringify(this.props.image.title)}
          <h2>Add image to Favorites</h2>
-         <img src={this.props.image.url} alt={this.props.image.title} />
+         <img src={this.props.image.image_url} alt={this.props.image.title} width="500" height="450"/><br/>
         <button onClick={this.addToFavorites}>Add Favorite</button>
       </div>
     )

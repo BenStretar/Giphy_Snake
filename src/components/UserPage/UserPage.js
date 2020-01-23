@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 // import AdminPage from '../AdminPage/AdminPage';
-// import addGifPage from '../AddGifPage/addGifPage';
+// import AddGifPage from '../AddGifPage/addGifPage';
 // import GifCard from '../GifCard/GifCard';
 // import AddNew from '../AddNew/AddNew';
 
@@ -21,7 +21,7 @@ import { connect } from 'react-redux';
 //     <p>Admin</p>
 //     <Fragment>
 //       <AdminPage/>
-//       <addGifPage/>
+//       <AddGifPage/>
 //       <GifCard/>
 //       <AddNew/>
 //     </Fragment>
