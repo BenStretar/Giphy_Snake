@@ -6,6 +6,7 @@ import searchReducer from './searchReducer';
 import favoriteReducer from './favoriteReducer';
 import favoriteListReducer from './favoriteListReducer';
 import scoreReducer from './scoreReducer';
+import userGifReducer from './userGifReduer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   favoriteReducer,
   favoriteListReducer,
   scoreReducer,
+  userGifReducer,
 });
 
 export default rootReducer;
