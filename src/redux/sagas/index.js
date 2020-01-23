@@ -7,6 +7,7 @@ import addNewFavorite from './addNewFavorite';
 import deleteFavorite from './deleteFavorite';
 import getFavoriteList from './getFavoriteList';
 import editSaga from './editSaga';
+import getUserGif from './getUserGif';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -24,6 +25,7 @@ export default function* rootSaga() {
     getFavoriteList(),
     addNewFavorite(),
     deleteFavorite(),
-    editSaga()
+    editSaga(),
+    getUserGif(),
   ]);
 }
