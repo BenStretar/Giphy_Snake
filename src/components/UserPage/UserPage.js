@@ -1,16 +1,11 @@
-// import React, {Component, Fragment} from 'react';
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux';
-// import AdminPage from '../AdminPage/AdminPage';
-// import AddGifPage from '../AddGifPage/addGifPage';
-// import GifCard from '../GifCard/GifCard';
-// import AddNew from '../AddNew/AddNew';
-
-
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
-
+// commented out for now - not working as wanted
+  // import React, {Component, Fragment} from 'react';
+  // import AdminPage from '../AdminPage/AdminPage';
+  // import AddGifPage from '../AddGifPage/addGifPage';
+  // import GifCard from '../GifCard/GifCard';
+  // import AddNew from '../AddNew/AddNew';
 
 // export class UserPage extends Component{
 //   render(){
@@ -34,14 +29,20 @@ import { connect } from 'react-redux';
 //   }
 // }
 
+class UserPage extends Component {
 
-const UserPage = (props) => (
-  <div>
-    <h1>User Home Page</h1>
+  componentDidMount(){
+    this.props.dispatch({ type: 'GET_USER_GIF'})
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>User Home Page</h1>
     <h2 id="welcome">
-      Welcome, { props.user.username }!
+      Welcome, { this.props.user.username }!
     </h2>
-    <p>Your ID is: {props.user.id}</p>
+    <p>Your ID is: {this.props.user.id}</p>
 
     <section>
       <h2>High Scores</h2>
@@ -61,18 +62,17 @@ const UserPage = (props) => (
 
       <hr />
       <h2>Collected Gifs</h2>
-      
+      <div>
+
+      </div>
     </section>
-
-  </div>
-);
-
-// Instead of taking everything from state, we just want the user info.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({user}) => ({ user });
-const mapStateToProps = state => ({
-  user: state.user,
-});
+      </div>
+    )
+  }
+}
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(UserPage);
+export default connect(reduxState => ({
+  user: reduxState.user,
+  userImage: reduxState.userGifReducer
+}))(UserPage);
