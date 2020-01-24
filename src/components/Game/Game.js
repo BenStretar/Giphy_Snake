@@ -123,7 +123,7 @@ class App extends Component {
   render(){
     return(
       <>
-      <h1 className="header">Dodge and Collect</h1>
+      <h1 className="header">Lag and Collect</h1>
       <h2 className="score">Score: {this.state.score} Time: {this.state.elapsedTime}</h2>
     <div className="game-area">
       <Snake snakeDots={this.state.snakeDots} />  {/* <Item />*/}

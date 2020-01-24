@@ -30,6 +30,7 @@ router.post('/', (req, res) => {
     })
   });
 
+  // update image titles
   router.put('/:id', (req, res)=>{
     console.log('req.body: ',req.body)
     console.log('id: ',req.params.id)

@@ -13,6 +13,7 @@ const userRouter = require('./routes/user.router');
 const giphyRouter = require(`./routes/giphy.router`); 
 const addGifRouter = require('./routes/addGif.router');
 const scoreRouter = require(`./routes/score.router`);
+const userGifRouter = require(`./routes/userGif.router`);
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -27,9 +28,10 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use(`/api/giphy`, giphyRouter); //gifs
-app.use(`/api/addGif`, addGifRouter);
-app.use(`/api/score`, scoreRouter);
+app.use(`/api/giphy`, giphyRouter); //giphy api
+app.use(`/api/addGif`, addGifRouter); // admin routes (get, put, post, delete)
+app.use(`/api/score`, scoreRouter); 
+app.use(`/api/userGif`, userGifRouter); // user routes
 
 // Serve static files
 app.use(express.static('build'));

@@ -29,8 +29,8 @@ class EditTitle extends Component {
     render() {
         return (
             <>
-            {/* {JSON.stringify(this.props.favoriteImages)} */}
-                <h2>Edit image title</h2>
+            {JSON.stringify(this.props.match)}
+                <h2>Update title</h2>
                 <div>
                     <input type="text" placeholder="Image title" onChange={(event)=>this.handleChange(event, 'title')}/>
                     <button onClick={this.handleCancel}>Cancel</button>
