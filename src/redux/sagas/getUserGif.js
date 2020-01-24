@@ -3,7 +3,7 @@ import {put, takeLatest} from 'redux-saga/effects';
 
 function* userGifSee(action){
     try {
-        yield axios.post('/api/userGif', action.payload);
+        yield axios.get('/api/userGif', action.payload);
         yield put({type: 'SET_USER_GIF'})
     } 
     catch (error) {
