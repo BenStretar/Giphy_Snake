@@ -71,9 +71,9 @@ class App extends Component {
               exact path="/howto" component={HowToPlay}
             />
 
-            {/* <ProtectedRoute
+            <ProtectedRoute
               exact path="/game" component={Game}
-            /> */}
+            />
 
             <ProtectedRoute
               exact path="/edit/:id" component={EditTitle}

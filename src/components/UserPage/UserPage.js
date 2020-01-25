@@ -31,9 +31,9 @@ import { connect } from 'react-redux';
 
 class UserPage extends Component {
 
-  componentDidMount(){
-    this.props.dispatch({ type: 'GET_USER_GIF'})
-  }
+  // componentDidMount(){
+  //   this.props.dispatch({ type: 'GET_USER_GIF'})
+  // }
 
   render() {
     return (
