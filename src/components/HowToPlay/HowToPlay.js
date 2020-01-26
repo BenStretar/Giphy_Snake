@@ -13,7 +13,8 @@ class HowToPlay extends Component {
                     <div className="">
                         <ul>
                             <li>Use the Arrow Keys on your keyboard to move the black square around the board</li>
-                            <li>If you run into the edges of the board your game will end</li>
+                            <li>As you collect the red items your character will grow</li>
+                            <li>If you run into either yourself or the edges of the board your game will end</li>
                             {/* <li>Avoid the red rectangles. If they hit you your game will end.</li> */}
                             <li>Collect as many gifs (items) as you can</li>
                             <li>Top left of the screen shows your time and below that the amount of gifs that you have picked up</li>
