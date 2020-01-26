@@ -4,9 +4,10 @@ const router = express.Router();
 
 
 // return user gifs
-router.get('/', (req, res)=>{
-    let queryString = `SELECT * FROM "user_gifs";`;
-    pool.query(queryString).then(results =>{
+router.get('/:id', (req, res)=>{
+    let queryString = `SELECT * FROM "user_gifs" WHERE "user_id"=$1;`;
+    const id = req.params.id
+    pool.query(queryString, id).then(results =>{
         res.send(results.rows);
     }).catch(error => {
         console.log(`Error getting user_gifs from the database`, error);
