@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import './UserPage.css'
 // commented out for now - not working as wanted
   // import React, {Component, Fragment} from 'react';
   // import AdminPage from '../AdminPage/AdminPage';
@@ -31,9 +32,9 @@ import { connect } from 'react-redux';
 
 class UserPage extends Component {
 
-  // componentDidMount(){
-  //   this.props.dispatch({ type: 'GET_USER_GIF'})
-  // }
+  componentDidMount(){
+    this.props.dispatch({ type: 'GET_USER_GIF'})
+  }
 
   render() {
     return (
@@ -42,28 +43,36 @@ class UserPage extends Component {
     <h2 id="welcome">
       Welcome, { this.props.user.username }!
     </h2>
-    <p>Your ID is: {this.props.user.id}</p>
 
     <section>
-      <h2>High Scores</h2>
+      {/* Add to Next Steps */}
+      {/* <h2>High Scores</h2>
       <table>
         <thead>
-            <tr><th>Time</th>
-            <th>Items Collected</th></tr>
+            <tr><th>Items Collected</th></tr>
         </thead>
         <tbody>
             <tr>
-                <td>1:30</td>
-                <td>0</td>
+                <td>15</td>
             </tr>
         </tbody>                       
-      </table>
-      <button>Clear Scores</button>  
+      </table>*/}
 
-      <hr />
+      
+      <br/>
+      <hr /> 
       <h2>Collected Gifs</h2>
       <div>
-
+        {/* {JSON.stringify(this.props)} */}
+        
+      {this.props.userImage.map( (item)=> {
+        return (
+            <div key={item}>
+                <h2>{item.title}</h2>
+                <img alt={item.title} src={item.url} />
+            </div>
+              )
+          })}
       </div>
     </section>
       </div>
