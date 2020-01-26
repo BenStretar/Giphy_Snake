@@ -17,7 +17,8 @@ const initialState = {
   speed: 200,
   // direction: 'RIGHT', // starting direction
   snakeDots: [
-    [50,50] // start in the middle
+    [0,0], // starting position (top left)
+    // [2,0] 
   ],
   score: 0,
   elapsedTime: 0,
@@ -34,7 +35,7 @@ class App extends Component {
 
   componentDidUpdate(){
     this.checkIfOutOfBorders()
-    // this.checkIfCollapsed()
+    this.checkIfCollapsed()
     this.checkIfEat()
   }
 
@@ -90,6 +91,17 @@ class App extends Component {
     }
   }
 
+  checkIfCollapsed(){
+    let snake = [...this.state.snakeDots];
+    let head = snake[snake.length -1];
+    snake.pop();
+    snake.forEach(dot => {
+      if (head[0] === dot[0] && head[1] === dot[1]){
+        this.onGameOver();
+      }
+    })
+  }
+
 
   checkIfEat(){
     let head = this.state.snakeDots[this.state.snakeDots.length -1]
@@ -99,9 +111,18 @@ class App extends Component {
         item: getRandomCoordinates(),
         score: this.state.score + 1
       })
-      this.increaseSpeed()
+      this.enlargeSnake();
+      this.increaseSpeed();
       //console.log('collected')
     }
+  }
+
+  enlargeSnake(){
+    let newSnake = [...this.state.snakeDots];
+    newSnake.unshift([])
+    this.setState({
+      snakeDots: newSnake
+    })
   }
 
 
@@ -114,7 +135,7 @@ class App extends Component {
   }
 
   onGameOver(){
-    alert(`Game Over. You scored: ${this.state.score}`);
+    alert(`Game Over. You collected ${this.state.score} item(s)`);
     this.setState(initialState)
     this.props.history.push('/') // takes the user home after gameover
     this.props.dispatch({type: 'SET_SCORE'})
@@ -123,8 +144,11 @@ class App extends Component {
   render(){
     return(
       <>
-      <h1 className="header">Lag and Collect</h1>
-      <h2 className="score">Score: {this.state.score} Time: {this.state.elapsedTime}</h2>
+      <h1 className="header">Giphy_Snake</h1>
+      <h3 className="score">
+        Length: {this.state.snakeDots.length} <br />
+        Items Collected: {this.state.score}
+      </h3>
     <div className="game-area">
       <Snake snakeDots={this.state.snakeDots} />  {/* <Item />*/}
       <Item dot={this.state.item} /> 
