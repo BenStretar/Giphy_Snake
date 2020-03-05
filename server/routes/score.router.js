@@ -25,9 +25,16 @@ router.post('/', (req, res)=>{
     });
 });
 
-// // delete from game table
-// router.delete('/:id', (req, res) =>{
-
-// })
+// delete from game table
+router.delete('/:id', (req, res) =>{
+    const id = req.params.id
+    let queryString = `DELETE FROM "game" WHERE "id" = $1;`;
+    pool.query(queryString, [id]).then(result=>{
+        res.sendStatus(200)
+    }).catch(error=>{
+        console.log(`Error deleting a score from database: `, error);
+        res.sendStatus(400);
+    });
+});
 
 module.exports = router;
