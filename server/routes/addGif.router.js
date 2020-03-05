@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
     }).catch(error=>{
       res.sendStatus(400);
       console.log(error);    
-    })
+    });
   });
 
   // update image titles
@@ -42,8 +42,8 @@ router.post('/', (req, res) => {
     }).catch(error =>{
       console.log('Error updating titles in database', error)
       res.sendStatus(400)
-    })
-  })
+    });
+  });
 
   // delete a gif from the gif table
 router.delete('/:id', (req, res) => {
