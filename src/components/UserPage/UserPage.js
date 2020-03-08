@@ -46,28 +46,31 @@ class UserPage extends Component {
 
     <section>
       {/* Add to Next Steps */}
-      {/* <h2>High Scores</h2>
+      <h2>High Scores</h2>
       <table>
         <thead>
             <tr><th>Items Collected</th></tr>
         </thead>
         <tbody>
+          {this.props.score.map( (item) => {
+            return(
             <tr>
-                <td>15</td>
+              <td>{item.gifs_collected}</td>
             </tr>
+          )})}
         </tbody>                       
-      </table>*/}
+      </table>
 
       
       <br/>
       <hr /> 
       <h2>Collected Gifs</h2>
       <div>
-        {/* {JSON.stringify(this.props)} */}
+        {JSON.stringify(this.props)}
         
       {this.props.userImage.map( (item)=> {
         return (
-            <div key={item}>
+            <div key={item.id}>
                 <h2>{item.title}</h2>
                 <img alt={item.title} src={item.url} />
             </div>
@@ -83,5 +86,6 @@ class UserPage extends Component {
 // this allows us to use <App /> in index.js
 export default connect(reduxState => ({
   user: reduxState.user,
-  userImage: reduxState.userGifReducer
+  userImage: reduxState.userGifReducer,
+  score: reduxState.scoreReducer
 }))(UserPage);
