@@ -1,10 +1,11 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
 // return added gifs
-router.get('/', (req, res)=>{
+router.get('/', rejectUnauthenticated, (req, res)=>{
     let queryString = `SELECT * FROM "gifs";`;
     pool.query(queryString).then(results =>{
         res.send(results.rows);
@@ -15,7 +16,7 @@ router.get('/', (req, res)=>{
 });
 
 // add a new favorite 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     console.log(req.body);
     const {image_url, title} = req.body;
     let queryString = `INSERT INTO "gifs" ("title", "url") VALUES ($1, $2);`;
@@ -31,7 +32,7 @@ router.post('/', (req, res) => {
   });
 
   // update image titles
-  router.put('/:id', (req, res)=>{
+  router.put('/:id', rejectUnauthenticated, (req, res)=>{
     console.log('req.body: ',req.body)
     console.log('id: ',req.params.id)
     const id = req.params.id
@@ -46,7 +47,7 @@ router.post('/', (req, res) => {
   });
 
   // delete a gif from the gif table
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id
     let queryString = `DELETE FROM "gifs" WHERE "id"=$1;`;
     pool.query(queryString, [id]).then(result=>{
