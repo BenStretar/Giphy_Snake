@@ -7,7 +7,7 @@ function* userGifSee(action){
         yield put({type: 'SET_USER_GIF'})
     } 
     catch (error) {
-        console.log(error)
+        console.log(`error getting user gifs: `,error)
     }
 }
 
